@@ -1,0 +1,34 @@
+[workspace.lints.rust]
+unsafe_code = "forbid"
+unused = "allow"       # For experimental dev.
+
+[workspace]
+resolver = "2"
+members = [
+    # -- Application Libraries
+    "crates/libs/lib-utils", # e.g., base64, time.
+    "crates/libs/lib-core",  # e.g., model, ctx, config.
+    "crates/libs/lib-fs",    # e.g., fs, file, dir, etc.
+
+    # -- Application Services
+    "crates/services/test-service",
+
+    # -- Tools
+    # "crates/tools/gen-key",
+]
+
+[workspace.dependencies]
+# Async
+tokio = { version = "1.41.0", features = ["full"] }
+# Tracing
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+#Other
+derive_more = {version = "1.0.0-beta", features = ["from"] }
+time = { version = "0.3", features = ["formatting", "parsing"] }
+uuid = { version = "1", features = ["v4", "fast-rng"] }
+
+# Dev
+anyhow = "1.0.91"
+httpc-test = "0.1"
+serial_test = "2"

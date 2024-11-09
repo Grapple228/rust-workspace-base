@@ -1,0 +1,21 @@
+[package]
+name = "lib-fs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+doctest = false
+
+[lints]
+workspace = true
+
+[dependencies]
+# -- App libs
+lib-utils = { path = "../../libs/lib-utils" }
+# -- Async
+tokio = { workspace = true }
+# -- Others
+derive_more = { workspace = true }
+
+[dev-dependencies]
+anyhow = "1"
