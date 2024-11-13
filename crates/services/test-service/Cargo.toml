@@ -1,8 +1,13 @@
 [package]
-name = "{{project-name}}"
-version = "0.1.0"
-edition = "2021"
-authors = ["{{authors}}"]
+name = "test-service"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+authors.workspace = true
+description.workspace = true
+
+[lints]
+workspace = true
 
 [dependencies]
 # -- App Libs
@@ -23,4 +28,4 @@ time = { workspace = true }
 anyhow = { workspace = true }
 httpc-test = { workspace = true }
 serial_test = { workspace = true }
-chrono = "0.4.38"
+chrono = "0.4"

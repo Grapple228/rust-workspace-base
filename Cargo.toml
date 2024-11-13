@@ -1,3 +1,10 @@
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["{{authors}}"]
+description = "{{description}}"
+
 [workspace.lints.rust]
 unsafe_code = "forbid"
 unused = "allow"       # For experimental dev.
@@ -19,16 +26,16 @@ members = [
 
 [workspace.dependencies]
 # Async
-tokio = { version = "1.41.0", features = ["full"] }
+tokio = { version = "1", features = ["full"] }
 # Tracing
-tracing = "0.1.40"
-tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 #Other
-derive_more = {version = "1.0.0-beta", features = ["from"] }
+derive_more = {version = "1", features = ["from"] }
 time = { version = "0.3", features = ["formatting", "parsing"] }
-uuid = { version = "1", features = ["v4", "fast-rng"] }
+uuid = { version = "1", features = ["v4", "v7", "fast-rng"] }
 
 # Dev
-anyhow = "1.0.91"
+anyhow = "1"
 httpc-test = "0.1"
 serial_test = "2"
