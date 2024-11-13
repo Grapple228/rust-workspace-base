@@ -2,27 +2,38 @@
 
 This is template structure for cargo projects with workspace
 
+## 🚴 Usage
+
+### 🐑 Use `cargo generate` to Clone this Template
+
+[Learn more about `cargo generate` here.](https://github.com/ashleygwilliams/cargo-generate)
+
+```sh
+cargo generate --git https://github.com/Grapple228/rust-workspace-base.git --name my-project
+cd my-project
+```
+
 ## Dev setup
 
-Firsly install cargo-watch
+Firstly install `cargo-watch`
 
 ```sh
 cargo install cargo-watch
 ```
 
-For execution app on save, use command:
+### For execution app on save, use command
 
 ```sh
 cargo watch -q -c -w crates/services/test-service/src/ -w crates/libs/ -w .cargo/ -x "run -p test-service"
 ```
 
-For execution test app on save, use command:
+### For execution test app on save, use command
 
 ```sh
 cargo watch -q -c -w crates/services/test-service/examples/ -x "run -p test-service --example quick-dev"
 ```
 
-For execution test on save, use command:
+### For execution tests on save, use command
 
 ```sh
 cargo watch -q -c -x "test -q -p lib-fs test_fs_execute_not_error -- --nocapture"

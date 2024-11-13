@@ -1,41 +1,61 @@
-# By Default, Ignore any .*, except .gitignore
+# -- Base
 .*
 !.gitignore
 
-/target
-/Cargo.lock
+_*
+# '_' in src dir, ok.
+!**/src/**/_*
+
+*.lock
+*.lockb
+*.log
 
 # -- Rust
-# For .cargo/config.toml
-!.cargo/
 target/
-
-# For blueprint ignore Cargo.lock
-# (commit Cargo.lock for real project)
-Cargo.lock
+# !Cargo.lock # commented by default
+!.cargo/
 
 # -- Safety net
 dist/
-__pycache__/
-node_modules/
-npm-debug.log
-report.*.json
+out/
 
+# Data Files
+*.db3
 *.parquet
 *.map
 *.zip
 *.gz
 *.tar
 *.tgz
+*.vsix
 
-# videos
+# Videos
 *.mov
 *.mp4
+*.webm
+*.ogg
+*.avi
 
-# images
+# Images
 *.icns
 *.ico
 *.jpeg
 *.jpg
-*.gif
 *.png
+*.bmp
+
+# -- Nodejs
+node_modules/
+!.mocharc.yaml
+report.*.json
+
+# -- Python
+__pycache__/
+
+
+# -- others
+# Allows .env (make sure only dev info) 
+# !.env # Commented by default
+
+# Allow vscode
+# !.vscode # Commented by default
