@@ -11,7 +11,6 @@ pub use self::error::{Error, Result};
 // pub type Db = Pool<Postgres>;
 
 pub async fn new_db_pool() -> Result<Db> {
-    // * See NOTE 1) below
     // let max_connections = if cfg!(test) { 1 } else { 5 };
 
     // PgPoolOptions::new()
