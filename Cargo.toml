@@ -1,11 +1,11 @@
 [workspace.package]
 version = "0.1.0"
 edition = "2021"
-license = "MIT OR Apache-2.0"
-repository = "https://github.com/{{username}}/{{project-name}}.git"
-authors = ["{{authors}}"]
+license = "MIT"
 description = "{{description}}"
-readme = "README.md"
+authors = ["{{authors}}"]
+readme = "readme.md"
+repository = "https://github.com/{{username}}/{{project-name}}.git"
 
 [workspace.lints.rust]
 unsafe_code = "forbid"
@@ -15,9 +15,7 @@ unused = { level = "allow", priority = -1 } # For exploratory dev.
 resolver = "2"
 members = [
     # -- Application Libraries
-    "crates/libs/lib-utils", # e.g., base64, time.
     "crates/libs/lib-core",  # e.g., model, ctx, config.
-    "crates/libs/lib-fs",    # e.g., fs, file, dir, etc.
 
     # -- Application Services
     "crates/services/test-service",
@@ -27,6 +25,10 @@ members = [
 ]
 
 [workspace.dependencies]
+# My libs
+grapple_utils = { version = "*", features = ["b64", "b58", "cuuid"] }
+grapple_db = { version = "*", features = [ "redis"] }
+
 # Async
 tokio = { version = "1", features = ["full"] }
 # Tracing
@@ -34,8 +36,6 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 #Other
 derive_more = {version = "1", features = ["from"] }
-time = { version = "0.3", features = ["formatting", "parsing"] }
-uuid = { version = "1", features = ["v4", "v7", "fast-rng"] }
 
 # Dev
 anyhow = "1"

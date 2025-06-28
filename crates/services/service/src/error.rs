@@ -1,6 +1,5 @@
 use derive_more::From;
 use lib_core::model;
-use lib_fs;
 
 pub type Result<T> = core::result::Result<T, Error>;
 
@@ -9,8 +8,6 @@ pub enum Error {
     // -- Modules
     #[from]
     Model(model::Error),
-    #[from]
-    Fs(lib_fs::Error),
 }
 
 // region:    --- Error Boilerplate

@@ -1,12 +1,26 @@
-mod error;
+// region:    --- Modules
 
-pub use error::{Error, Result};
-use lib_fs::fs_config;
 use tracing::info;
 use tracing_subscriber::EnvFilter;
 
+// -- Modules
+mod error;
+
+// -- Flatten
+pub use error::{Error, Result};
+
+// endregion: --- Modules
+
 #[tokio::main]
 async fn main() -> Result<()> {
+    init()?;
+
+    // App logic
+
+    Ok(())
+}
+
+fn init() -> Result<()> {
     // LOGGING INITIALIZATION
     tracing_subscriber::fmt()
         .without_time() // For early development
@@ -15,8 +29,6 @@ async fn main() -> Result<()> {
         .init();
 
     info!("Initializing");
-
-    // App logic
 
     Ok(())
 }
