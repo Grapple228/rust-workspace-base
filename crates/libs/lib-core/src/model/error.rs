@@ -1,5 +1,5 @@
 use derive_more::derive::From;
-use uuid::Uuid;
+use grapple_utils::cuuid::uuid::Uuid;
 
 use super::store;
 

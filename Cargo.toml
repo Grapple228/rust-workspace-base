@@ -18,7 +18,7 @@ members = [
     "crates/libs/lib-core",  # e.g., model, ctx, config.
 
     # -- Application Services
-    "crates/services/test-service",
+    "crates/services/service",
 
     # -- Tools
     # "crates/tools/gen-key",

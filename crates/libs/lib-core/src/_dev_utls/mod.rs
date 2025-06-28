@@ -3,9 +3,9 @@ mod dev_db;
 
 use crate::ctx::Ctx;
 use crate::model::{self, ModelManager};
+use grapple_utils::cuuid::uuid::Uuid;
 use tokio::sync::OnceCell;
 use tracing::info;
-use uuid::Uuid;
 
 // endregion: --- Modules
 

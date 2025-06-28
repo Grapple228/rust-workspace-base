@@ -1,4 +1,4 @@
-use uuid::Uuid;
+use grapple_utils::cuuid::uuid::Uuid;
 
 use crate::ctx::Ctx;
 use crate::model::{Error, Result};

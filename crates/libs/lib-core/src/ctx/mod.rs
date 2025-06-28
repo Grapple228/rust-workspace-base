@@ -2,7 +2,7 @@
 
 mod error;
 
-use uuid::Uuid;
+use grapple_utils::cuuid::uuid::Uuid;
 
 pub use self::error::{Error, Result};
 

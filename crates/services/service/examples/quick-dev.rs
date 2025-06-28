@@ -1,9 +1,9 @@
 use service::init;
-use service::{Result, Error};
+use service::{Error, Result};
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    {{project-name}}::init();
+    service::init();
 
     println!("quick-dev");
 
