@@ -1,19 +1,23 @@
-use derive_more::From;
-use lib_core::model;
+//! Main Crate Error
+
+use derive_more::derive::From;
 
 pub type Result<T> = core::result::Result<T, Error>;
 
 #[derive(Debug, From)]
 pub enum Error {
-    // -- Modules
-    #[from]
-    Core(lib_core::Error),
+    // -- Config
+    ConfigAlreadyInitialized,
 
+    // -- Modules
+
+    // -- Externals
     #[from]
-    Model(model::Error),
+    Envs(grapple_utils::envs::Error),
 }
 
 // region:    --- Error Boilerplate
+
 impl core::fmt::Display for Error {
     fn fmt(&self, fmt: &mut core::fmt::Formatter) -> core::result::Result<(), core::fmt::Error> {
         write!(fmt, "{self:?}")
@@ -21,4 +25,5 @@ impl core::fmt::Display for Error {
 }
 
 impl std::error::Error for Error {}
+
 // endregion: --- Error Boilerplate

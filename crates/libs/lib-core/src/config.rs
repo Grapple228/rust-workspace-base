@@ -1,3 +1,4 @@
+use crate::{Error, Result};
 use grapple_utils::envs::get;
 use std::sync::OnceLock;
 use tracing::warn;
@@ -19,17 +20,16 @@ pub struct CoreConfig {
 }
 
 impl CoreConfig {
-    fn load_from_env() -> grapple_utils::envs::Result<Self> {
-        Ok(CoreConfig {
+    fn load_from_env() -> Result<Self> {
+        Ok(Self {
             // -- DB
             DB_URL: get("SERVICE_DB_URL")?,
         })
     }
 
-    pub fn init_from(cfg: Self) {
-        match INSTANCE.set(cfg) {
-            Ok(_) => (),
-            Err(_) => warn!("Config was already configured"),
-        }
+    pub fn init_from(cfg: Self) -> Result<()> {
+        INSTANCE
+            .set(cfg)
+            .map_err(|_| Error::ConfigAlreadyInitialized)
     }
 }
